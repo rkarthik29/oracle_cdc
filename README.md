@@ -115,6 +115,10 @@ from our test table.
 
 To see if things are running well, execute teh following query:
 
+Inline-style: 
+![alt text](https://github.com/jster1357/oracle_cdc/edit/master/vstream-capture.png "vstreams capture")
+
+
 *COLUMN CAPTURE_NAME HEADING 'Capture|Name' FORMAT A15*  
 *COLUMN STATE HEADING 'State' FORMAT A15*  
 *COLUMN CREATE_MESSAGE HEADING 'Last LCR|Create Time'*  
@@ -144,7 +148,8 @@ XStreams process.
 When running the XStreams java app, you should see records come through on the console after the records have been committed. 
 
 
+https://github.com/jster1357/oracle_cdc/edit/master/
 
-
-
+Inline-style: 
+![alt text](https://github.com/jster1357/oracle_cdc/edit/master/vstream-capture.png "vstreams capture")
 
