@@ -129,7 +129,7 @@ To see if things are running well, execute teh following query:
   
 If everything is setup properly, you should see a “waiting for transaction” in the STATE field.
 
-To drop a output server run the following command, replacing xout with your xstream server name
+If for some reason you have issues with the output server, you can drop the server and recreate it. To drop a output server run the following command, replacing xout with your xstream server name:
 
 *exec DBMS_XSTREAM_ADM.DROP_OUTBOUND('xout');* 
 
