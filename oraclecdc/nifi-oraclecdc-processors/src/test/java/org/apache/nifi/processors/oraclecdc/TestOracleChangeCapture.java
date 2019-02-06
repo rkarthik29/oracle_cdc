@@ -16,14 +16,7 @@
  */
 package org.apache.nifi.processors.oraclecdc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.nifi.controller.AbstractControllerService;
-import org.apache.nifi.dbcp.DBCPService;
-import org.apache.nifi.processor.exception.ProcessException;
+import org.apache.nifi.processors.oraclecdc.controller.impl.StandardOracleCDCService;
 import org.apache.nifi.reporting.InitializationException;
 import org.apache.nifi.util.TestRunner;
 import org.apache.nifi.util.TestRunners;
@@ -43,13 +36,18 @@ public class TestOracleChangeCapture {
 
         //testRunner.addControllerService("dbcp", dbcp, dbcpProperties);
         //testRunner.enableControllerService(dbcp);
-        testRunner.setProperty(OracleChangeCapture.DB_HOST,"localhost");
-        testRunner.setProperty(OracleChangeCapture.DB_PORT,"32776");
-        testRunner.setProperty(OracleChangeCapture.DB_USER,"xstrmadmin");
-        testRunner.setProperty(OracleChangeCapture.DB_PASS,"welcome1");
-        testRunner.setProperty(OracleChangeCapture.DB_SID,"orcl");
-        testRunner.setProperty(OracleChangeCapture.DB_DRIVER_LOCATION,"/Users/knarayanan/Downloads/instantclient_12_2/ojdbc8.jar,"
+        StandardOracleCDCService service = new StandardOracleCDCService();
+        testRunner.addControllerService("cdcservice", service);
+        testRunner.setProperty(service,StandardOracleCDCService.DB_HOST,"localhost");
+        testRunner.setProperty(service,StandardOracleCDCService.DB_PORT,"32776");
+        testRunner.setProperty(service,StandardOracleCDCService.DB_USER,"xstrmadmin");
+        testRunner.setProperty(service,StandardOracleCDCService.DB_PASS,"welcome1");
+        testRunner.setProperty(service,StandardOracleCDCService.DB_SID,"orcl");
+        testRunner.setProperty(service,StandardOracleCDCService.DB_DRIVER_LOCATION,"/Users/knarayanan/Downloads/instantclient_12_2/ojdbc8.jar,"
         		+ "/Users/knarayanan/Downloads/instantclient_12_2/xstreams.jar");
+        testRunner.enableControllerService(service);
+        testRunner.setProperty(OracleChangeCapture.CDC_SERVICE, "cdcservice");
+        
     }
 
     @Test
@@ -57,7 +55,7 @@ public class TestOracleChangeCapture {
     	
     	testRunner.setProperty(OracleChangeCapture.XS_OUT, "xout1");
     	//testRunner.setRunSchedule(5000);
-    	testRunner.run(1);
+    	testRunner.run(5);
     	//testRunner.shutdown();
     	
     }
