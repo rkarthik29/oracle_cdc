@@ -147,9 +147,5 @@ XStreams process.
 
 When running the XStreams java app, you should see records come through on the console after the records have been committed. 
 
-
-https://github.com/jster1357/oracle_cdc/edit/master/
-
-Inline-style: 
-![alt text](https://github.com/jster1357/oracle_cdc/edit/master/vstream-capture.png "vstreams capture")
+![alt text](https://github.com/jster1357/oracle_cdc/blob/master/java-output.png "java output")
 
