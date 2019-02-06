@@ -115,8 +115,7 @@ from our test table.
 
 To see if things are running well, execute teh following query:
 
-Inline-style: 
-![alt text](https://github.com/jster1357/oracle_cdc/edit/master/vstream-capture.png "vstreams capture")
+![alt text](https://github.com/jster1357/oracle_cdc/blob/master/vstream-capture.png "vstreams capture")
 
 
 *COLUMN CAPTURE_NAME HEADING 'Capture|Name' FORMAT A15*  
